@@ -37,6 +37,7 @@
                                                 <ul>
                                                     <li>Username : <?= $data->username ?></li>
                                                     <li>Email : <?= $data->email ?></li>
+                                                    <li>Phone : <?= $data->phone ?></li>
                                                 </ul>
                                             </td>
                                             <td><?= $data->role ?></td>
@@ -61,6 +62,11 @@
 <script>
     $('.add-data').on('click', function() {
         $('.modal-title').text('Tambah User Baru')
+        $('input[name="name"]').val('')
+        $('input[name="phone"]').val('')
+        $('input[name="address"]').val('')
+        $('input[name="username"]').val('')
+        $('input[name="email"]').val('')
         $('form').attr('action', '<?= base_url('user/store') ?>')
         $('#myModal').modal('show');
     })
@@ -74,6 +80,11 @@
             success: function(result) {
                 let obj = JSON.parse(result)
                 $('input[name="name"]').val(obj.name)
+                $('input[name="phone"]').val(obj.phone)
+                $('input[name="address"]').val(obj.address)
+                $('input[name="role"]').val(obj.role)
+                $('input[name="username"]').val(obj.username)
+                $('input[name="email"]').val(obj.email)
             }
         });
         $('#myModal').modal('show');

@@ -9,7 +9,7 @@
     <title><?= $title ?> - PUSAT INOVASI DAERAH</title>
 
     <!-- Fav Icon -->
-    <link rel="icon" href="<?= base_url('assets/assets/frontend/') ?>images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?= base_url('assets/frontend/') ?>images/favicon.ico" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">

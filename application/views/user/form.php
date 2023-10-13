@@ -9,8 +9,28 @@
             <div class="modal-body">
                 <form action="<?php echo base_url('user/store') ?>" method="post">
                     <div class="form-group">
-                        <label for="">Nama User <span class="text-danger">*</span></label>
-                        <input type="text" name="name" class="form-control" autocomplete="off" required>
+                        <label for="">Name User <span class="text-danger">*</span></label>
+                        <input type="text" name="name" id="name" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Username <span class="text-danger">*</span></label>
+                        <input type="text" name="username" id="username" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email <span class="text-danger">*</span></label>
+                        <input type="text" name="email" id="email" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Phone <span class="text-danger">*</span></label>
+                        <input type="text" name="phone" id="phone" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password <span class="text-danger">*</span></label>
+                        <input type="password" name="password" id="password" class="form-control" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Address <span class="text-danger">*</span></label>
+                        <input type="text" name="address" id="address" class="form-control" autocomplete="off" required>
                     </div>
             </div>
             <div class="modal-footer">
