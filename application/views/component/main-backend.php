@@ -53,9 +53,9 @@
 								</button>
 								<div class="dropdown-menu dropdown-menu-end">
 									<!-- item-->
-									<a class="dropdown-item d-block" href="#"><i class="bx bx-key font-size-16 align-middle me-1"></i> Update Password</a>
+									<a class="dropdown-item d-block" href="<?= base_url('user/changePassword') ?>"><i class="bx bx-key font-size-16 align-middle me-1"></i> Update Password</a>
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item text-danger" href="#"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> Logout</a>
+									<a class="dropdown-item text-danger" href="<?= base_url('auth/logout') ?>"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> Logout</a>
 								</div>
 							</div>
 
@@ -131,7 +131,7 @@
 								</ul>
 							</li>
 							<li>
-								<a href="<?= base_url('inovasi') ?>" class="waves-effect">
+								<a href="<?= base_url('innovation') ?>" class="waves-effect">
 									<i class="mdi mdi-trophy-award"></i>
 									<span>Data Inovasi</span>
 								</a>
