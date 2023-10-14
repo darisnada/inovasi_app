@@ -6,12 +6,14 @@ class Home extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Setting_m');
     }
     public function index()
     {
 
         $this->data['title'] = 'Home';
         $this->data['content'] = 'home/index';
+        $this->data['setting'] = $this->Setting_m->get();
         $this->load->view('component/main-frontend', $this->data);
     }
 }

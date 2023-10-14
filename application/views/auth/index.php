@@ -7,9 +7,9 @@
                         <div class="bg-login-overlay"></div>
                         <div class="position-relative">
                             <h5 class="text-white font-size-20">Welcome Back !</h5>
-                            <p class="text-white-50 mb-0">Masuk untuk mengelola Inovasi Daerah.</p>
+                            <p class="text-white-50 mb-0"><?= $setting['name_app']?>.</p>
                             <a href="#" class="logo logo-admin mt-4">
-                                <img src="<?= base_url('assets/') ?>assets/images/logo-sm-dark.png" alt="" height="30">
+                                <img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" height="30">
                             </a>
                         </div>
                     </div>

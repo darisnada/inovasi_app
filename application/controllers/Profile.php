@@ -8,12 +8,14 @@ class Profile extends CI_Controller
         parent::__construct();
         cekLogin();
         $this->load->model('User_m');
+        $this->load->model('Setting_m');
     }
     public function index()
     {
         $this->data['title'] = 'Profile';
         $this->data['content'] = 'profile/change-password';
         $this->data['user'] = infoLogin();
+        $this->data['setting'] = $this->Setting_m->get();
         $this->load->view('component/main-backend', $this->data);
     }
 

@@ -7,6 +7,7 @@ class Masyarakat extends CI_Controller {
 		parent::__construct();
 		cekLogin();
 		$this->load->model('Masyarakat_m');
+        $this->load->model('Setting_m');
 	}
 	public function index()
     {
@@ -15,6 +16,8 @@ class Masyarakat extends CI_Controller {
         $this->data['content'] = 'masyarakat/index';
         $this->data['user'] = infoLogin();
 		$this->data['userData'] = $this->Masyarakat_m->get();
+        $this->data['user'] = infoLogin();
+		$this->data['setting'] = $this->Setting_m->get();
 		$this->load->view('component/main-backend', $this->data);
 	}
 

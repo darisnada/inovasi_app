@@ -8,6 +8,7 @@ class Asn extends CI_Controller {
 		cekLogin();
 		$this->load->model('Asn_m');
 		$this->load->model('Agency_m');
+		$this->load->model('Setting_m');
 	}
 	public function index()
     {
@@ -17,6 +18,7 @@ class Asn extends CI_Controller {
         $this->data['user'] = infoLogin();
 		$this->data['userData'] = $this->Asn_m->get();
 		$this->data['agencyData'] = $this->Agency_m->get();
+		$this->data['setting'] = $this->Setting_m->get();
 		$this->load->view('component/main-backend', $this->data);
 	}
 

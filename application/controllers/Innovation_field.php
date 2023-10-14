@@ -7,6 +7,7 @@ class Innovation_field extends CI_Controller {
 		parent::__construct();
 		cekLogin();
 		$this->load->model('InnovationField_m');
+        $this->load->model('Setting_m');
 	}
 	public function index()
     {
@@ -15,6 +16,7 @@ class Innovation_field extends CI_Controller {
         $this->data['content'] = 'innovation_field/index';
         $this->data['user'] = infoLogin();
 		$this->data['data'] = $this->InnovationField_m->get();
+		$this->data['setting'] = $this->Setting_m->get();
 		$this->load->view('component/main-backend', $this->data);
 	}
 

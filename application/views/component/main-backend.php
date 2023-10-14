@@ -47,7 +47,7 @@
 
 							<div class="dropdown d-inline-block">
 								<button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<img class="rounded-circle header-profile-user" src="<?= base_url('assets/') ?>images/users/avatar-2.jpg" alt="Header Avatar">
+									<img class="rounded-circle header-profile-user" src="<?= base_url('assets/') ?>images/users/default-users.png" alt="Header Avatar">
 									<span class="d-none d-xl-inline-block ms-1"><?= $user['name'] ?></span>
 									<i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
 								</button>
@@ -65,19 +65,19 @@
 							<div class="navbar-brand-box">
 								<a href="index.html" class="logo logo-dark">
 									<span class="logo-sm">
-										<img src="<?= base_url('assets/') ?>images/logo-sm.png" alt="" height="20">
+										<img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" height="20">
 									</span>
 									<span class="logo-lg">
-										<img src="<?= base_url('assets/') ?>images/logo-dark.png" alt="" height="17">
+										<img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" height="17">
 									</span>
 								</a>
 
 								<a href="index.html" class="logo logo-light">
 									<span class="logo-sm">
-										<img src="<?= base_url('assets/') ?>images/logo-sm.png" alt="" height="20">
+										<img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" height="20">
 									</span>
 									<span class="logo-lg">
-										<img src="<?= base_url('assets/') ?>images/logo-light.png" alt="" height="19">
+										<img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" height="19">
 									</span>
 								</a>
 							</div>
@@ -96,7 +96,7 @@
 
 					<div class="user-wid text-center py-4">
 						<div class="user-img">
-							<img src="<?= base_url('assets/') ?>images/users/avatar-2.jpg" alt="" class="avatar-md mx-auto rounded-circle">
+							<img src="<?= base_url('assets/') ?>images/users/default-users.png" alt="" class="avatar-md mx-auto rounded-circle">
 						</div>
 
 						<div class="mt-3">
@@ -206,6 +206,11 @@
 	<!-- apexcharts -->
 	<script src="<?= base_url('assets/') ?>libs/apexcharts/apexcharts.min.js"></script>
 
+	<!--tinymce js-->
+	<script src="<?= base_url('assets/') ?>libs/tinymce/tinymce.min.js"></script>
+	<script src="<?= base_url('assets/') ?>js/pages/form-editor.init.js"></script>
+	<script src="<?= base_url('assets/') ?>libs/dropzone/min/dropzone.min.js"></script>
+
 
 	<script src="<?= base_url('assets/') ?>js/app.js"></script>
 	<!-- Required datatable js -->
@@ -224,6 +229,15 @@
 		$(function() {
 			$('.dataTable').DataTable();
 		})
+	</script>
+
+	<script>
+		tinymce.init({
+		selector: 'textarea#elm2'
+		});
+		tinymce.init({
+		selector: 'textarea#elm3'
+		});
 	</script>
 
 </body>

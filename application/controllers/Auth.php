@@ -5,6 +5,7 @@ class Auth extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('Setting_m');
 	}
 	public function index()
 	{
@@ -12,6 +13,7 @@ class Auth extends CI_Controller {
 		if($this->form_validation->run() == false ){
 			$this->data['title'] = 'Sign In';
 			$this->data['content'] = 'auth/index';
+			$this->data['setting'] = $this->Setting_m->get();
 			$this->load->view('component/main-auth', $this->data);
 		} else{
 			$this->_login();

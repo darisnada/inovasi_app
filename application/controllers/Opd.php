@@ -8,6 +8,7 @@ class Opd extends CI_Controller
         parent::__construct();
         cekLogin();
         $this->load->model('Agency_m');
+        $this->load->model('Setting_m');
     }
     public function index()
     {
@@ -16,6 +17,7 @@ class Opd extends CI_Controller
         $this->data['content'] = 'opd/index';
         $this->data['user'] = infoLogin();
         $this->data['opd'] = $this->Agency_m->get();
+        $this->data['setting'] = $this->Setting_m->get();
         $this->load->view('component/main-backend', $this->data);
     }
 
