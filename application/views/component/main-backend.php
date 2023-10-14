@@ -109,7 +109,7 @@
 
 					<!--- Sidemenu -->
 					<div id="sidebar-menu">
-						<!-- Left Menu Start -->
+						<!-- Left Menu Start for admin -->
 						<ul class="metismenu list-unstyled" id="side-menu">
 							<li class="menu-title">Menu</li>
 							<li>
@@ -126,8 +126,8 @@
 								<ul class="sub-menu" aria-expanded="false">
 									<li><a href="<?= base_url('opd') ?>">Data OPD</a></li>
 									<li><a href="email-read.html">Data Fokus Bidang</a></li>
-									<li><a href="email-read.html">Data Masyarakat</a></li>
-									<li><a href="email-read.html">Data ASN</a></li>
+									<li><a href="<?= base_url('masyarakat') ?>">Data Masyarakat</a></li>
+									<li><a href="<?= base_url('asn') ?>">Data ASN</a></li>
 								</ul>
 							</li>
 							<li>
@@ -150,6 +150,7 @@
 							</li>
 
 						</ul>
+
 					</div>
 					<!-- Sidebar -->
 				</div>
