@@ -125,7 +125,7 @@
 								</a>
 								<ul class="sub-menu" aria-expanded="false">
 									<li><a href="<?= base_url('opd') ?>">Data OPD</a></li>
-									<li><a href="email-read.html">Data Fokus Bidang</a></li>
+									<li><a href="<?= base_url('innovation_field') ?>">Data Fokus Bidang</a></li>
 									<li><a href="<?= base_url('masyarakat') ?>">Data Masyarakat</a></li>
 									<li><a href="<?= base_url('asn') ?>">Data ASN</a></li>
 								</ul>
