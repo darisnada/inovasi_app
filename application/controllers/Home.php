@@ -16,4 +16,12 @@ class Home extends CI_Controller
         $this->data['setting'] = $this->Setting_m->get();
         $this->load->view('component/main-frontend', $this->data);
     }
+    public function innovation()
+    {
+
+        $this->data['title'] = 'Inovasi';
+        $this->data['content'] = 'home/innovation';
+        $this->data['setting'] = $this->Setting_m->get();
+        $this->load->view('component/main-frontend', $this->data);
+    }
 }

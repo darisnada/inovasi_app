@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content-box">
-                        <h1>Profect App For Boost Your Business</h1>
-                        <div class="text">The collapse of the online-advertising market in 2001 made marketing on the Internet seem even less compelling.</div>
-                        <div class="btn-box"><a href="#">Daftar Inovasi Masyarakat</a></div>
-                        <div class="btn-box"><a href="#">Daftar Inovasi Perangkat Daerah</a></div>
+                        <h1><?= ucfirst($setting['banner_title'])?></h1>
+                        <div class="text"><?= ucfirst($setting['banner_desc'])?></div>
+                        <div class="btn-box"><a href="<?= base_url('auth/signUp')?>">Daftar Inovasi Masyarakat</a></div>
+                        <div class="btn-box"><a href="<?= base_url('auth')?>">Login</a></div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">

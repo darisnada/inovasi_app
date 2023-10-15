@@ -6,6 +6,7 @@ class Auth extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Setting_m');
+		$this->load->model('Masyarakat_m');
 	}
 	public function index()
 	{
@@ -18,6 +19,22 @@ class Auth extends CI_Controller {
 		} else{
 			$this->_login();
 		}
+	}
+	public function signUp()
+	{
+			$this->data['title'] = 'Sign Up';
+			$this->data['content'] = 'auth/sign-up';
+			$this->data['setting'] = $this->Setting_m->get();
+			$this->load->view('component/main-auth', $this->data);
+	}
+
+	public function proses_signup(){
+		$this->Masyarakat_m->store();
+        $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <strong>Sukses!</strong> Data berhasil di tambahkan.
+                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                              </div>');
+        redirect('auth');
 	}
 
 	private function _rules()

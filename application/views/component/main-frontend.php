@@ -42,7 +42,7 @@
             <div class="container">
                 <div class="main-box clearfix">
                     <div class="logo-box pull-left">
-                        <figure class="logo"><a href="index.html"><img src="<?= base_url('assets/frontend/') ?>images/logo.png" alt=""></a></figure>
+                        <figure class="logo"><a href="index.html"><img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" width="100px" alt=""></a></figure>
                     </div>
                     <div class="menu-area pull-right">
                         <!--Mobile Navigation Toggler-->
@@ -58,8 +58,8 @@
                                     <li><a href="#">Profil</a></li>
                                     <li class="dropdown"><a href="#">Inovasi</a>
                                         <ul>
-                                            <li><a href="#">Masyarakat</a></li>
-                                            <li><a href="#">ASN</a></li>
+                                            <li><a href="<?= base_url('home/innovation')?>?category=MASYARAKAT">Masyarakat</a></li>
+                                            <li><a href="<?= base_url('home/innovation')?>?category=ASN">ASN</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Kontak</a></li>
@@ -74,7 +74,7 @@
         <!--sticky Header-->
         <div class="sticky-header">
             <div class="container clearfix">
-                <figure class="logo-box"><a href="index.html"><img src="<?= base_url('assets/frontend/') ?>images/small-logo.png" alt=""></a></figure>
+                <figure class="logo-box"><a href="index.html"><img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" width="100px" alt=""></a></figure>
                 <div class="menu-area">
                     <nav class="main-menu clearfix">
                         <!--Keep This Empty / Menu will come through Javascript-->

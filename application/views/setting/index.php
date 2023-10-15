@@ -74,13 +74,14 @@
                                             <input type="text" required name="banner_title" class="form-control" value="<?= $data['banner_title']?>">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mt-3">
+                                    <div class="col-lg-12 mt-3">
                                         <div class="form-group">
                                             <label for="">Deskripsi Banner</label>
-                                            <textarea id="elm3" name="banner_desc"><?= $data['banner_desc'] ?? ''?></textarea>
+                                            <!-- <textarea id="elm3" name="banner_desc"></textarea> -->
+                                            <input type="text" class="form-control" name="banner_desc" value="<?= $data['banner_desc'] ?? ''?>">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mt-3">
+                                    <div class="col-lg-12 mt-3">
                                         <div class="form-group">
                                             <label for="">Deskripsi Profile</label>
                                             <textarea id="elm2" name="profile_desc"><?= $data['profile_desc'] ?? ''?></textarea>
