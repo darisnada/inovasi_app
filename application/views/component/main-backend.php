@@ -7,7 +7,7 @@
 	<title><?= $title ?> | PUSAT INOVASI DAERAH</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- App favicon -->
-	<link rel="shortcut icon" href="<?= base_url('assets/') ?>images/favicon.ico">
+	<link rel="shortcut icon" href="<?= base_url('assets/') ?>images/<?= $setting['icon']?>">
 	<script src="<?= base_url('assets/') ?>libs/jquery/jquery.min.js"></script>
 
 	<!-- Bootstrap Css -->
