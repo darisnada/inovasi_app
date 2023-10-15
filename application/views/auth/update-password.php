@@ -1,4 +1,3 @@
-<?php checkRole('ADMIN') ?>
 <div class="page-content">
 
     <!-- start page title -->

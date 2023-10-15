@@ -23,8 +23,9 @@ class User extends CI_Controller {
     {
 
 		$this->data['title'] = 'Ubah Password';
-        $this->data['content'] = 'auth/update-password';
-        $this->data['user'] = infoLogin();
+    $this->data['content'] = 'auth/update-password';
+    $this->data['user'] = infoLogin();
+    $this->data['setting'] = $this->Setting_m->get();
 		$this->load->view('component/main-backend', $this->data);
 	}
 

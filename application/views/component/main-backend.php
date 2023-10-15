@@ -107,7 +107,8 @@
 						</div>
 					</div>
 
-					<!--- Sidemenu -->
+					<?php if($user['role'] == 'ADMIN') : ?>
+					<!--- Sidemenu Admin -->
 					<div id="sidebar-menu">
 						<!-- Left Menu Start for admin -->
 						<ul class="metismenu list-unstyled" id="side-menu">
@@ -153,6 +154,42 @@
 
 					</div>
 					<!-- Sidebar -->
+					<?php endif; ?>
+
+					<?php if($user['role'] == 'MASYARAKAT') : ?>
+					<!--- Sidemenu Masyarakat -->
+					<div id="sidebar-menu">
+						<!-- Left Menu Start for admin -->
+						<ul class="metismenu list-unstyled" id="side-menu">
+							<li>
+								<a href="<?= base_url('innovation/index_masyarakat') ?>" class="waves-effect">
+									<i class="mdi mdi-trophy-award"></i>
+									<span>Data Inovasi</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+					<?php endif; ?>
+					<!-- Sidebar -->
+
+					<?php if($user['role'] == 'ASN') : ?>
+					<!--- Sidemenu ASN -->
+					<div id="sidebar-menu">
+						<!-- Left Menu Start for admin -->
+						<ul class="metismenu list-unstyled" id="side-menu">
+							<li>
+								<a href="<?= base_url('innovation/index_masyarakat') ?>" class="waves-effect">
+									<i class="mdi mdi-trophy-award"></i>
+									<span>Data Inovasi</span>
+								</a>
+							</li>
+
+						</ul>
+					</div>
+					<?php endif; ?>
+					<!-- Sidebar -->
+
 				</div>
 			</div>
 			<!-- Left Sidebar End -->

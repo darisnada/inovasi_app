@@ -1,3 +1,4 @@
+<?php roleMasyarakat('ADMIN') ?>
 <div class="page-content">
 
     <!-- start page title -->

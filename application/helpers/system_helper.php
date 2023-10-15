@@ -32,3 +32,12 @@ function checkRole($role){
 		redirect('auth/blocked');
 	}
 }
+
+function roleMasyarakat($role){
+	$ci = get_instance();
+	$user = $ci->db->get_where('users', ['username' => $ci->session->userdata('username')])->row_array();
+	if($user['role'] != $role){
+		
+		redirect('innovation/index_');
+	}
+}
