@@ -7,6 +7,8 @@ class Home extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Setting_m');
+        $this->load->model('Innovation_m');
+        $this->load->model('InnovationField_m');
     }
     public function index()
     {
@@ -14,13 +16,29 @@ class Home extends CI_Controller
         $this->data['title'] = 'Home';
         $this->data['content'] = 'home/index';
         $this->data['setting'] = $this->Setting_m->get();
+        $this->data['innovationField'] = $this->InnovationField_m->get();
         $this->load->view('component/main-frontend', $this->data);
     }
     public function innovation()
     {
-
         $this->data['title'] = 'Inovasi';
         $this->data['content'] = 'home/innovation';
+        $this->data['setting'] = $this->Setting_m->get();
+        $this->data['data'] = $this->Innovation_m->get();
+        $this->data['innovationField'] = $this->InnovationField_m->get();
+        $this->load->view('component/main-frontend', $this->data);
+    }
+    public function profile()
+    {
+        $this->data['title'] = 'Profil';
+        $this->data['content'] = 'home/profile';
+        $this->data['setting'] = $this->Setting_m->get();
+        $this->load->view('component/main-frontend', $this->data);
+    }
+    public function contact()
+    {
+        $this->data['title'] = 'Kontak';
+        $this->data['content'] = 'home/contact';
         $this->data['setting'] = $this->Setting_m->get();
         $this->load->view('component/main-frontend', $this->data);
     }

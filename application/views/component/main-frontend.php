@@ -17,6 +17,8 @@
     <!-- Stylesheets -->
     <link href="<?= base_url('assets/frontend/') ?>css/font-awesome-all.css" rel="stylesheet">
     <link href="<?= base_url('assets/frontend/') ?>css/flaticon.css" rel="stylesheet">
+    <!-- Icons Css -->
+	<link href="<?= base_url('assets/') ?>css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="<?= base_url('assets/frontend/') ?>css/owl.css" rel="stylesheet">
     <link href="<?= base_url('assets/frontend/') ?>css/bootstrap.css" rel="stylesheet">
     <link href="<?= base_url('assets/frontend/') ?>css/jquery.fancybox.min.css" rel="stylesheet">
@@ -24,6 +26,10 @@
     <link href="<?= base_url('assets/frontend/') ?>css/imagebg.css" rel="stylesheet">
     <link href="<?= base_url('assets/frontend/') ?>css/style.css" rel="stylesheet">
     <link href="<?= base_url('assets/frontend/') ?>css/responsive.css" rel="stylesheet">
+
+    <link href="<?= base_url('assets/') ?>libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+
+    <script src="<?= base_url('assets/frontend/') ?>js/jquery.js"></script>
 
 </head>
 
@@ -54,15 +60,15 @@
                         <nav class="main-menu navbar-expand-md navbar-light">
                             <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                 <ul class="navigation clearfix">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Profil</a></li>
+                                    <li><a href="<?= base_url('home')?>">Home</a></li>
+                                    <li><a href="<?= base_url('home/profile')?>">Profil</a></li>
                                     <li class="dropdown"><a href="#">Inovasi</a>
                                         <ul>
                                             <li><a href="<?= base_url('home/innovation')?>?category=MASYARAKAT">Masyarakat</a></li>
                                             <li><a href="<?= base_url('home/innovation')?>?category=ASN">ASN</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Kontak</a></li>
+                                    <li><a href="<?= base_url('home/contact')?>">Kontak</a></li>
                                 </ul>
                             </div>
                         </nav>
@@ -91,7 +97,7 @@
         <div class="close-btn"><i class="fas fa-times"></i></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="<?= base_url('assets/frontend/') ?>images/logo.png" alt="" title=""></a></div>
+            <div class="nav-logo"><a href="index.html"><img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" title=""></a></div>
             <div class="menu-outer">
                 <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
             </div>
@@ -109,11 +115,10 @@
                     <div class="row">
                         <div class="col-lg-7 col-md-6 col-sm-12 footer-column">
                             <div class="about-widget footer-widget">
-                                <figure class="footer-logo"><a href="index.html"><img src="<?= base_url('assets/frontend/') ?>images/footer-logo.png" alt=""></a></figure>
-                                <div class="text">Jalan Imam Bonjol Nomor 190 Semarang Kode Pos 50132
-                                    Telp. : (024) 3540025, Fax. : (024) 3560505
-                                    Surat Elektronik : brida@jatengprov.go.id
-                                    Website : brida.jatengprov.go.id</div>
+                                <figure class="footer-logo"><a href="#"><img src="<?= base_url('assets/') ?>images/<?= $setting['logo']?>" alt="" width="200px"></a></figure>
+                                <div class="text"><?= $setting['contact_address']?>
+                                    Telp. : <?= $setting['contact_phone']?>, Fax. : <?= $setting['contact_fax']?>
+                                    Email : <?= $setting['contact_email']?></div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
@@ -160,7 +165,6 @@
 
 
     <!-- jequery plugins -->
-    <script src="<?= base_url('assets/frontend/') ?>js/jquery.js"></script>
     <script src="<?= base_url('assets/frontend/') ?>js/popper.min.js"></script>
     <script src="<?= base_url('assets/frontend/') ?>js/bootstrap.min.js"></script>
     <script src="<?= base_url('assets/frontend/') ?>js/owl.js"></script>
@@ -173,6 +177,15 @@
 
     <!-- main-js -->
     <script src="<?= base_url('assets/frontend/') ?>js/script.js"></script>
+
+    <!-- Required datatable js -->
+	<script src="<?= base_url('assets/') ?>libs/datatables.net/js/jquery.dataTables.min.js"></script>
+	<script src="<?= base_url('assets/') ?>libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+		$(function() {
+			$('.dataTable').DataTable();
+		})
+	</script>
 
 </body><!-- End of .page_wrapper -->
 

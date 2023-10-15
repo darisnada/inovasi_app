@@ -11,6 +11,7 @@ class Innovation_m extends CI_Model
     {
         $filter = '';
         $filterUser = '';
+        $filterKategori = '';
         if($innovation_field_id != ''){
             $filter = "AND a.innovation_field_id=$innovation_field_id";
         }
@@ -20,7 +21,11 @@ class Innovation_m extends CI_Model
             $user_id = $user['id'];
             $filterUser = "AND a.user_id=$user_id";
         }
-        return $this->db->query("SELECT a.*, b.name as innovation_field_name FROM innovations a, innovation_fields b WHERE a.innovation_field_id=b.id $filter $filterUser")->result();
+        $category = $this->input->get('category');
+        if(isset($category)){
+            $filterKategori = "AND a.category='$category'";
+        }
+        return $this->db->query("SELECT a.*, b.name as innovation_field_name FROM innovations a, innovation_fields b WHERE a.innovation_field_id=b.id $filter $filterUser $filterKategori")->result();
     }
     public function store()
     {

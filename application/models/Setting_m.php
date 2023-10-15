@@ -15,7 +15,7 @@ class Setting_m extends CI_Model {
         $profile_image = $this->db->query("SELECT * FROM settings WHERE options='profile_image'")->row();
         $contact_title = $this->db->query("SELECT * FROM settings WHERE options='contact_title'")->row();
         $contact_phone = $this->db->query("SELECT * FROM settings WHERE options='contact_phone'")->row();
-        $contact_tax = $this->db->query("SELECT * FROM settings WHERE options='contact_tax'")->row();
+        $contact_fax = $this->db->query("SELECT * FROM settings WHERE options='contact_fax'")->row();
         $contact_email = $this->db->query("SELECT * FROM settings WHERE options='contact_email'")->row();
         $contact_address = $this->db->query("SELECT * FROM settings WHERE options='contact_address'")->row();
         $contact_map = $this->db->query("SELECT * FROM settings WHERE options='contact_map'")->row();
@@ -29,7 +29,7 @@ class Setting_m extends CI_Model {
             'profile_image' => $profile_image->value,
             'contact_title' => $contact_title->value,
             'contact_phone' => $contact_phone->value,
-            'contact_tax' => $contact_tax->value,
+            'contact_fax' => $contact_fax->value,
             'contact_email' => $contact_email->value,
             'contact_address' => $contact_address->value,
             'contact_map' => $contact_map->value,
@@ -46,7 +46,7 @@ class Setting_m extends CI_Model {
         $this->db->set(['value' => $this->input->post('profile_desc')])->where('options', 'profile_desc')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_title')])->where('options', 'contact_title')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_phone')])->where('options', 'contact_phone')->update($this->table);
-        $this->db->set(['value' => $this->input->post('contact_tax')])->where('options', 'contact_tax')->update($this->table);
+        $this->db->set(['value' => $this->input->post('contact_fax')])->where('options', 'contact_fax')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_email')])->where('options', 'contact_email')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_address')])->where('options', 'contact_address')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_map')])->where('options', 'contact_map')->update($this->table);

@@ -107,8 +107,8 @@
                                     </div>
                                     <div class="col-lg-6 mt-3">
                                         <div class="form-group">
-                                            <label for="">Tax</label>
-                                            <input type="text" name="contact_tax" value="<?= $data['contact_tax']?>" class="form-control">
+                                            <label for="">Fax</label>
+                                            <input type="text" name="contact_fax" value="<?= $data['contact_fax']?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mt-3">
