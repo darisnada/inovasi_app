@@ -16,8 +16,9 @@ class Innovation_m extends CI_Model
             $filter = "AND a.innovation_field_id=$innovation_field_id";
         }
         $ci = get_instance();
+        // var_dump($ci->session); die;
         $user = $ci->db->get_where('users', ['username' => $ci->session->userdata('username')])->row_array();
-        if($user['role'] != 'ADMIN'){
+        if(isset($user) && $user['role'] != 'ADMIN'){
             $user_id = $user['id'];
             $filterUser = "AND a.user_id=$user_id";
         }
@@ -53,24 +54,19 @@ class Innovation_m extends CI_Model
             'city_id'   => 340,
             'agency_id'   => htmlspecialchars($this->input->post('agency_id'), true),
         );
-
-        $upload_file = $_FILES['file']['name'];
-
-        if ($upload_file) {
-            $config['allowed_types'] = 'jpg|png|jpeg|pdf|docx';
-            $config['max_size'] = '51200';
-            $config['upload_path'] = './assets/innovation/';
-
-            $this->load->library('upload', $config);
-
-            if ($this->upload->do_upload('file')) {
-                $new_file = $this->upload->data('file_name');
-                $this->db->set('file', $new_file);
-            } else {
-
-                echo $this->upload->display_errors();
-            }
+        if (!empty($_FILES['file']['name'])) {
+            $dataFile = $this->uploadFile();
+            $this->db->set('file', $dataFile);
+            // var_dump($dataFile); die;
         }
+        
+            // Process the 'foto' input
+            if (!empty($_FILES['foto']['name'])) {
+                $dataFoto = $this->uploadFoto();
+                // var_dump($dataFoto); die;
+                $data['foto'] = $dataFoto;
+            }
+            // var_dump($this->upload->do_upload('foto')); die;
         return $this->db->insert($this->table, $data);
     }
     public function show($id)
@@ -109,6 +105,7 @@ class Innovation_m extends CI_Model
             'password_file' => $result->password_file ?? '-',
             'description' => $result->description ?? '-',
             'agency_name' => $agency->agency_name ?? '-',
+            'foto' => $result->foto ?? '-',
         ];
         
         echo json_encode($data);
@@ -171,5 +168,41 @@ class Innovation_m extends CI_Model
     public function destroy($id)
     {
         return $this->db->where($this->primary, $id)->delete($this->table);
+    }
+
+    public function uploadFile(){
+        $upload_file = $_FILES['file']['name'];
+
+        if ($upload_file) {
+            $config['allowed_types'] = 'pdf|docx|jpg|png|jpeg';
+            $config['max_size'] = '51200';
+            $config['upload_path'] = './assets/innovation/';
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('file')) {
+                $new_file = $this->upload->data('file_name');
+                return $new_file;
+            } else {
+
+                echo $this->upload->display_errors();
+            }
+        }
+    }
+    public function uploadFoto(){
+        if (!empty($_FILES['foto']['name'])) {
+            $foto_config['allowed_types'] = 'jpg|png|jpeg';
+            $foto_config['max_size'] = '51200';
+            $foto_config['upload_path'] = './assets/innovation/';
+
+            $this->load->library('upload', $foto_config);
+
+            if ($this->upload->do_upload('foto')) {
+                $new_foto = $this->upload->data('file_name');
+                return $new_foto; // Set the foto field in the data array
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
     }
 }

@@ -121,6 +121,7 @@ include 'detail.php';
                 $('#description').html(obj.description)
                 $('#agency_name').html(obj.agency_name)
                 $('#file').html(`<a href="<?= base_url('assets/innovation') ?>/${obj.file}" target="_blank" class="text-primary" target='_blank'><i class="bx bx-file-blank">Buka File</i></a>`)
+                $('#foto').html(`<a href="<?= base_url('assets/innovation') ?>/${obj.foto}" target="_blank" class="text-primary" target='_blank'><i class="bx bx-file-blank">Buka Foto</i></a>`)
                 $('#password_file').html(obj.password_file)
             }
         });

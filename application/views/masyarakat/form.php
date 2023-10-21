@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <center><span class="text-danger">Password default menggunakan username</span></center>
+                <!-- <center><span class="text-danger">Password default menggunakan username</span></center> -->
                 <hr>
                 <form action="<?php echo base_url('masyarakat/store') ?>" method="post">
                     <div class="form-group">
@@ -19,8 +19,8 @@
                         <input type="text" name="identity" id="identity" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Username <span class="text-danger">*</span></label>
-                        <input type="text" name="username" id="username" class="form-control" autocomplete="off" required>
+                        <label for="">Password <span class="text-danger">*</span></label>
+                        <input type="password" name="password" id="password" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="">Email <span class="text-danger">*</span></label>

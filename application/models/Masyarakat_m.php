@@ -15,8 +15,8 @@ class Masyarakat_m extends CI_Model {
     {
         $data = array(
             'identity'          => htmlspecialchars($this->input->post('identity'), true),
-            'username'          => htmlspecialchars($this->input->post('username'), true),
-            'password'          => password_hash($this->input->post('username'), PASSWORD_DEFAULT),
+            'username'          => htmlspecialchars($this->input->post('identity'), true),
+            'password'          => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'name'              => htmlspecialchars($this->input->post('name'), true),
             'phone'             => htmlspecialchars($this->input->post('phone'), true),
             'email'             => htmlspecialchars($this->input->post('email'), true),

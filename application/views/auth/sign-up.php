@@ -16,7 +16,7 @@
                     <div class="card-body pt-5">
                         <div class="p-2">
                         <form class="form-horizontal" action="<?= base_url('auth/proses_signup') ?>" method="post">
-                        <p><span class="text-danger">*Password default sesuai dengan username</span></p>
+                        <!-- <p><span class="text-danger">*Password default sesuai dengan username</span></p> -->
                         <div class="form-group">
                         <label for="">Nama Masyarakat <span class="text-danger">*</span></label>
                         <input type="text" name="name" id="name" class="form-control" autocomplete="off" required>
@@ -26,8 +26,8 @@
                         <input type="text" name="identity" id="identity" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group">
-                        <label for="">Username <span class="text-danger">*</span></label>
-                        <input type="text" name="username" id="username" class="form-control" autocomplete="off" required>
+                        <label for="">Password <span class="text-danger">*</span></label>
+                        <input type="password" name="password" id="password" class="form-control" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                         <label for="">Email <span class="text-danger">*</span></label>

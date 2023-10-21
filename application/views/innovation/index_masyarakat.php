@@ -52,6 +52,7 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>Foto</th>
                                         <th>Judul</th>
                                         <th>Tahun</th>
                                         <th>Bidang Fokus</th>
@@ -67,6 +68,7 @@
                                     <?php foreach ($data as $key => $data) : ?>
                                         <tr>
                                             <td><?= $key + 1 ?></td>
+                                            <td><?= isset($data->foto) ? "<img src='".base_url('assets/innovation/'.$data->foto)."' width='90px' alt=''>" : "Tidak ada foto" ?></td>
                                             <td><?= $data->title ?></td>
                                             <td><?= $data->year ?? '-' ?></td>
                                             <td><?= $data->innovation_field_name ?? '-' ?></td>
@@ -119,6 +121,7 @@ include 'form.php';
                 $('#description').val('')
                 $('#agency_name').val('')
                 $('#file').html(``)
+                $('#foto').html(``)
                 $('#password_file').val('')
         $('form').attr('action', '<?= base_url('innovation/store') ?>')
 
@@ -156,6 +159,7 @@ include 'form.php';
                 $('#description').val(obj.description)
                 $('#agency_name').val(obj.agency_name)
                 $('#file').html(`<a href="<?= base_url('assets/innovation') ?>/${obj.file}" class="text-primary" target='_blank'><i class="bx bx-file-blank">Buka File</i></a>`)
+                $('#foto').html(`<a href="<?= base_url('assets/innovation') ?>/${obj.foto}" class="text-primary" target='_blank'><i class="bx bx-file-blank">Buka Foto</i></a>`)
                 $('#password_file').val(obj.password_file)
             }
         });

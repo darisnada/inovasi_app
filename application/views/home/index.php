@@ -22,7 +22,38 @@
         </div>
     </section>
     <!-- banner-section end -->
+    <section class="feature-section" style="margin-top: -350px;">
 
+        <div class="container" >
+            <div id="content_block_01">
+                <div class="content-box">
+                    <div class="sec-title">
+                        <!-- <h2>Fokus Bidang Inovasi</h2> -->
+                        <!-- <p>Cumque adipisci anim quisque provident posuere blandit accumsan delectus quam quos interdum sociosqu.</p> -->
+                    </div>
+                    <div class="inner-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                <div class="single-item bg-light">
+                                    <div class="bg-layer" style="background-image: url(<?= base_url('assets/frontend/') ?>images/resource/case-1.png);"></div>
+                                    <div class="icon-box"><i class="mdi mdi-inbox-full"></i></div>
+                                    <h3><a href="<?= base_url('home/innovation')?>?category=MASYARAKAT" class="text-dark">Inovasi Masyarakat</a></h3>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                <div class="single-item bg-light">
+                                    <div class="bg-layer" style="background-image: url(<?= base_url('assets/frontend/') ?>images/resource/case-1.png);"></div>
+                                    <div class="icon-box"><i class="mdi mdi-inbox-full"></i></div>
+                                    <h3><a href="<?= base_url('home/innovation')?>?category=ASN" class="text-dark">Inovasi ASN</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
 
     <!-- feature-section -->
     <section class="feature-section">
@@ -93,16 +124,16 @@
                         <div class="inner-content">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                    <div class="feature-block-one js-tilt">
-                                        <div class="inner-box">
+                                    <div class="feature-block-one js-tilt" >
+                                        <div class="inner-box" style="border-radius: 4%;">
                                             <div class="hover-content"></div>
                                             <div class="icon-box"><i class="flaticon-profit"></i></div>
                                             <h5><a href="<?= base_url('home/innovation')?>">Data Inovasi</a></h5>
                                             <!-- <div class="text">Keyword research & ranking sure every step of you SEO Campaign is taken care.</div> -->
                                         </div>
                                     </div>
-                                    <div class="feature-block-one js-tilt">
-                                        <div class="inner-box">
+                                    <div class="feature-block-one js-tilt" >
+                                        <div class="inner-box" style="border-radius: 4%;">
                                             <div class="hover-content"></div>
                                             <div class="icon-box"><i class="flaticon-search"></i></div>
                                             <h5><a href="#">Penataan</a></h5>
@@ -111,8 +142,8 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                    <div class="feature-block-one js-tilt">
-                                        <div class="inner-box">
+                                    <div class="feature-block-one js-tilt" >
+                                        <div class="inner-box" style="border-radius: 4%;">
                                             <div class="hover-content"></div>
                                             <div class="icon-box"><i class="flaticon-check-box"></i></div>
                                             <h5><a href="#">Layanan</a></h5>
@@ -120,7 +151,7 @@
                                         </div>
                                     </div>
                                     <div class="feature-block-one js-tilt">
-                                        <div class="inner-box">
+                                        <div class="inner-box" style="border-radius: 4%;">
                                             <div class="hover-content"></div>
                                             <div class="icon-box"><i class="flaticon-atom"></i></div>
                                             <h5><a href="#">Penghargaan</a></h5>

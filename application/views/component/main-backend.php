@@ -162,7 +162,7 @@
 						<!-- Left Menu Start for admin -->
 						<ul class="metismenu list-unstyled" id="side-menu">
 							<li>
-								<a href="<?= base_url('innovation/index_masyarakat') ?>" class="waves-effect">
+								<a href="<?= base_url('innovation/index_') ?>" class="waves-effect">
 									<i class="mdi mdi-trophy-award"></i>
 									<span>Data Inovasi</span>
 								</a>

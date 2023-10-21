@@ -136,9 +136,9 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-4" <?= $user['role'] == 'ASN' ? '' : "style='display:none;'"?>>
                         <div>
-                            <strong>Agensi</strong>
+                            <strong>Dinas</strong>
                             <br>
                             <select name="agency_id" id="agency_id" class="inner form-control">
                                 <option value=""> </option>
@@ -169,7 +169,7 @@
                             <input type="text" name="link" id="link" class="form-control">
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <div>
                             <strong>File</strong>
                             <br>
@@ -177,7 +177,15 @@
                             <div id="file"></div>
                         </div>
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
+                        <div>
+                            <strong>Foto</strong>
+                            <br>
+                            <input type="file" name="foto" class="form-control">
+                            <div id="foto"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
                         <div>
                             <strong>Password File</strong>
                             <br>
