@@ -21,6 +21,38 @@
     <!-- feature-section -->
     <section class="feature-section">
         <div class="container">
+            <?php if(isset($_GET['typeInno']) && $_GET['typeInno'] == 1) : ?>
+                <div class="row">
+                    <?php
+                    foreach ($data as $key => $value) :
+                    ?>
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 inner-content" style="box-shadow: 2px 2px 1px grey; border-radius: 10px;">
+                        <div class="inner-content">
+                            <div class="team-block-two">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><a href="#"><img src="<?= base_url('assets/innovation/'.($value->foto ?? 'no-image.png')) ?>" alt="" height="150px"></a></figure>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 content-column d-flex">
+                                        <div class="content-box my-auto">
+                                            <span>Author : <?= $value->innovator_name?></span>
+                                            <h4><a href="#"><?= $value->title?></a></h4>
+                                            <div class="text">
+                                                <?= substr($value->description,0,100)."...."?>
+                                            </div>
+                                            <ul class="team-social">
+                                                <li><a href="javascript:void(0);" data-id="<?= $value->id ?>" class=" edit-data"><i class="fas fa-search"></i> Detail</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach;?>
+                </div>
+            <?php endif;?>
+            <?php if(!isset($_GET['typeInno'])) : ?>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="">
@@ -70,7 +102,7 @@
                                     <td><?= $value->category?></td>
                                     <td><?= $value->type?></td>
                                     <td>
-                                        <button type="button" data-id="<?= $value->id ?>" class="btn btn-sm btn-primary edit-data">Detail</button>
+                                        <button type="button" data-id="<?= $value->id ?>" class="btn btn-sm btn-primary edit-data"><i class="fas fa-search"></i> Detail</button>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -79,6 +111,7 @@
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </section><br>
     <!-- feature-section -->

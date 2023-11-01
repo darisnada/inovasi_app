@@ -29,6 +29,11 @@
 
     <link href="<?= base_url('assets/') ?>libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
+    <style>
+        .card-innov:hover {
+            color: white;
+        }
+    </style>
     <script src="<?= base_url('assets/frontend/') ?>js/jquery.js"></script>
 
 </head>

@@ -34,18 +34,22 @@
                     <div class="inner-box wow fadeInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                <div class="single-item bg-light">
-                                    <div class="bg-layer" style="background-image: url(<?= base_url('assets/frontend/') ?>images/resource/case-1.png);"></div>
-                                    <div class="icon-box"><i class="mdi mdi-inbox-full"></i></div>
-                                    <h3><a href="<?= base_url('home/innovation')?>?category=MASYARAKAT" class="text-dark">Inovasi Masyarakat</a></h3>
-                                </div>
+                                <a href="<?= base_url('home/innovation')?>?category=MASYARAKAT&typeInno=1" class="text-dark">
+                                    <div class="single-item bg-light card-innov">
+                                        <div class="bg-layer" style="background-image: url(<?= base_url('assets/frontend/') ?>images/resource/case-1-copy.png);"></div>
+                                        <div class="icon-box"><i class="mdi mdi-inbox-full"></i></div>
+                                        <h3>Inovasi Masyarakat</h3>
+                                    </div>
+                                </a>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                <div class="single-item bg-light">
-                                    <div class="bg-layer" style="background-image: url(<?= base_url('assets/frontend/') ?>images/resource/case-1.png);"></div>
-                                    <div class="icon-box"><i class="mdi mdi-inbox-full"></i></div>
-                                    <h3><a href="<?= base_url('home/innovation')?>?category=ASN" class="text-dark">Inovasi ASN</a></h3>
-                                </div>
+                                <a href="<?= base_url('home/innovation')?>?category=ASN&typeInno=1" class="text-dark">
+                                    <div class="single-item bg-light card-innov">
+                                        <div class="bg-layer" style="background-image: url(<?= base_url('assets/frontend/') ?>images/resource/case-1-copy.png);"></div>
+                                        <div class="icon-box"><i class="mdi mdi-inbox-full"></i></div>
+                                        <h3>Inovasi ASN</h3>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     </div>
