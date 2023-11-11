@@ -169,12 +169,20 @@
                             <input type="text" name="link" id="link" class="form-control">
                         </div>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div>
                             <strong>File</strong>
                             <br>
                             <input type="file" name="file" class="form-control">
                             <div id="file"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div>
+                            <strong>Password File</strong>
+                            <br>
+                            <input type="text" name="password_file" id="password_file" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -187,9 +195,18 @@
                     </div>
                     <div class="col-lg-4">
                         <div>
-                            <strong>Password File</strong>
+                            <strong>Foto Ke 2</strong>
                             <br>
-                            <input type="text" name="password_file" id="password_file" class="form-control">
+                            <input type="file" name="foto_second" class="form-control">
+                            <div id="foto_second"></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div>
+                            <strong>Foto Ke 3</strong>
+                            <br>
+                            <input type="file" name="foto_third" class="form-control">
+                            <div id="foto_third"></div>
                         </div>
                     </div>
                 </div>

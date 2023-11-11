@@ -26,12 +26,12 @@
                     <?php
                     foreach ($data as $key => $value) :
                     ?>
-                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 inner-content" style="box-shadow: 2px 2px 1px grey; border-radius: 10px;">
-                        <div class="inner-content">
+                    <div class="col-lg-6 col-md-6 col-sm-12 mb-3 inner-content" >
+                        <div class="inner-content" style="box-shadow: 2px 2px 1px grey; border-radius: 10px;">
                             <div class="team-block-two">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                                        <figure class="image-box"><a href="#"><img src="<?= base_url('assets/innovation/'.($value->foto ?? 'no-image.png')) ?>" alt="" height="150px"></a></figure>
+                                        <figure class="image-box" style='border-radius:10px;'><a href="#"><img src="<?= base_url('assets/innovation/'.($value->foto ?? 'no-image.png')) ?>" style="object-fit: cover; width: 100%; height: 250px;" alt=""></a></figure>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 content-column d-flex">
                                         <div class="content-box my-auto">
@@ -51,6 +51,26 @@
                     </div>
                     <?php endforeach;?>
                 </div>
+                <center>
+                <nav aria-label="...">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                    <a class="page-link">Previous</a>
+                    </li>
+                    <?php
+                    for ($i=0; $i < $total_page; $i++) { 
+                        # code...
+                        $active = $_GET["page"] == ($i+1) ? "active" : '';
+                        echo '<li class="page-item"><a class="page-link '.$active.'" href="'.base_url('home/innovationP?category=MASYARAKAT&typeInno=1&page='.($i+1)).'">'. ($i+1) .'</a></li>';
+                    }
+                    ?>
+                    
+                    <li class="page-item disabled">
+                    <a class="page-link">Next</a>
+                    </li>
+                </ul>
+                </nav>
+                </center>
             <?php endif;?>
             <?php if(!isset($_GET['typeInno'])) : ?>
             <div class="row">
@@ -83,6 +103,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>Foto</th>
                                     <th>Judul</th>
                                     <th>Bidang Fokus</th>
                                     <th>Kategori</th>
@@ -97,12 +118,14 @@
                                 ?>
                                 <tr>
                                     <td><?= $no++?></td>
+                                    <td><?= isset($value->foto) ? "<img src='".base_url('assets/innovation/'.$value->foto)."' width='90px' alt=''>" : "Tidak ada foto" ?></td>
                                     <td><?= $value->title?></td>
                                     <td><?= $value->innovation_field_name?></td>
                                     <td><?= $value->category?></td>
                                     <td><?= $value->type?></td>
                                     <td>
                                         <button type="button" data-id="<?= $value->id ?>" class="btn btn-sm btn-primary edit-data"><i class="fas fa-search"></i> Detail</button>
+                                        <button type="button" data-video="<?= $value->link ?>" class="btn btn-sm btn-warning video-data"><i class="fas fa-video"></i> Video Link</button>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -120,7 +143,23 @@
     ?>
 
     <script>
-            $('.edit-data').on('click', function() {
+    function viewPDF(a){
+        let video = a;
+
+        $('.modal-title').text('File PDF')
+        $('.video-view').html(`<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="${video}"></iframe></div>`)
+        $('#myModal').modal('hide');
+        $('#modalVid').modal('show');
+    }
+    $('.video-data').on('click', function() {
+        let video = $(this).data('video');
+
+        $('.modal-title').text('Video Inovasi')
+        $('.video-view').html(`<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="${video}"></iframe></div>`)
+        $('#modalVid').modal('show');
+
+    })
+    $('.edit-data').on('click', function() {
         $('.modal-title').text('Detail Inovasi')
         let id = $(this).data('id');
         $.ajax({
@@ -148,15 +187,32 @@
                 $('#testimonial').html(obj.testimonial)
                 $('#link').html(obj.link)
                 $('#description').html(obj.description)
+                $('#descrip').html(obj.description)
                 $('#agency_name').html(obj.agency_name)
-                $('#file').html(`<a href="<?= base_url('assets/innovation') ?>/${obj.file}" target="_blank" class="text-primary" target='_blank'><i class="bx bx-file-blank">Buka File</i></a>`)
+                $('#file').html(`<a href="javascript:void(0);" onclick="viewPDF('<?= base_url('assets/innovation') ?>/${obj.file}')" class="text-primary"><i class="bx bx-file-blank">Buka File</i></a>`)
+
+                var fot = obj.foto ?? 'no-image.png';
+                let img1 = `<a href="javascript:void(0);" onclick="viewFotoImages('${fot}')"><img src="<?= base_url('assets/innovation') ?>/${fot}" style="object-fit: cover; width: 50px; height: 50px;" alt="" srcset=""></a>`;
+                
+                var fot2 = obj.foto_second ?? 'no-image.png';
+                let img2 = `<a href="javascript:void(0);" onclick="viewFotoImages('${fot2}')"><img src="<?= base_url('assets/innovation') ?>/${fot2}" style="object-fit: cover; width: 50px; height: 50px;" alt="" srcset=""></a>`;
+                
+                var fot3 = obj.foto_third ?? 'no-image.png';
+                let img3 = `<a href="javascript:void(0);" onclick='viewFotoImages("${fot3}")'><img src="<?= base_url('assets/innovation') ?>/${fot3}" style="object-fit: cover; width: 50px; height: 50px;" alt="" srcset=""></a>`;
+
+                $('#kecilimages').html(`<div class='row'><div class='col-4'>${img1}</div><div class='col-4'>${img2}</div><div class='col-4'>${img3}</div></div>`)
                 $('#password_file').html(obj.password_file)
             }
         });
         $('#myModal').modal('show');
     })
 
+    function viewFotoImages(a='no-image.png'){
+        $('#giantimages').html(`<img src="<?= base_url('assets/innovation') ?>/${a}" style="object-fit: cover; width: 300px; height: 300px;" alt="" srcset="">`)
+    }
+
     function tutupMod(){
         $('#myModal').modal('hide');
+        $('#modalVid').modal('hide');
     }
     </script>

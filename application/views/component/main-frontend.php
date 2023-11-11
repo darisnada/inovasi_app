@@ -190,6 +190,8 @@
 		$(function() {
 			$('.dataTable').DataTable();
 		})
+        $('.carousel').carousel()
+        // const carousel = new bootstrap.Carousel('#carouselExampleControlsNoTouching')
 	</script>
 
 </body><!-- End of .page_wrapper -->

@@ -26,8 +26,87 @@ class Innovation_m extends CI_Model
         if(isset($category)){
             $filterKategori = "AND a.category='$category'";
         }
-        return $this->db->query("SELECT a.*, b.name as innovation_field_name FROM innovations a, innovation_fields b WHERE a.innovation_field_id=b.id $filter $filterUser $filterKategori")->result();
+        return $this->db->query("SELECT a.*, b.name as innovation_field_name, c.name as agency_name FROM innovations a, innovation_fields b, agencies c WHERE a.innovation_field_id=b.id AND c.id=a.agency_id $filter $filterUser $filterKategori")->result();
     }
+
+    public function getDataLimit($limit, $offset)
+    {
+
+        $filter = '';
+        $filterUser = '';
+        $filterKategori = '';
+
+        // Retrieve category from the input or query parameter
+        $category = $this->input->get('category');
+        if (isset($category)) {
+            $filterKategori = "AND a.category = '$category'";
+        }
+
+        $ci = get_instance();
+        $user = $ci->db->get_where('users', ['username' => $ci->session->userdata('username')])->row_array();
+        if (isset($user) && $user['role'] != 'ADMIN') {
+            $user_id = $user['id'];
+            $filterUser = "AND a.user_id = $user_id";
+        }
+
+        // Construct the query with LIMIT and OFFSET
+        $sql = "SELECT a.*, b.name as innovation_field_name FROM innovations a, innovation_fields b WHERE a.innovation_field_id = b.id $filter $filterUser $filterKategori LIMIT $limit OFFSET $offset";
+        
+        return $this->db->query($sql)->result();
+
+    }
+
+    public function getPaginate($limit, $offset)
+    {
+        $filter = '';
+        $filterUser = '';
+        $filterKategori = '';
+
+        // Retrieve category from the input or query parameter
+        $category = $this->input->get('category');
+        if (isset($category)) {
+            $filterKategori = "AND a.category = '$category'";
+        }
+
+        $ci = get_instance();
+        $user = $ci->db->get_where('users', ['username' => $ci->session->userdata('username')])->row_array();
+        if (isset($user) && $user['role'] != 'ADMIN') {
+            $user_id = $user['id'];
+            $filterUser = "AND a.user_id = $user_id";
+        }
+
+        // Construct the query with LIMIT and OFFSET
+        $sql = "SELECT a.*, b.name as innovation_field_name FROM innovations a, innovation_fields b WHERE a.innovation_field_id = b.id $filter $filterUser $filterKategori LIMIT $limit OFFSET $offset";
+        
+        return $this->db->query($sql)->result();
+    }
+
+    public function countAll()
+    {
+        $filter = '';
+        $filterUser = '';
+        $filterKategori = '';
+
+        // Retrieve category from the input or query parameter
+        $category = $this->input->get('category');
+        if (isset($category)) {
+            $filterKategori = "AND a.category = '$category'";
+        }
+
+        $ci = get_instance();
+        $user = $ci->db->get_where('users', ['username' => $ci->session->userdata('username')])->row_array();
+        if (isset($user) && $user['role'] != 'ADMIN') {
+            $user_id = $user['id'];
+            $filterUser = "AND a.user_id = $user_id";
+        }
+
+        // Construct the count query
+        $sql = "SELECT COUNT(*) as total_rows FROM innovations a, innovation_fields b WHERE a.innovation_field_id = b.id $filter $filterUser $filterKategori";
+
+        return $this->db->query($sql)->row()->total_rows;
+    }
+
+
     public function store()
     {
         $data = array(
@@ -52,7 +131,7 @@ class Innovation_m extends CI_Model
             'user_id'   => infoLogin()['id'],
             'prov_id'   => 24,
             'city_id'   => 340,
-            'agency_id'   => htmlspecialchars($this->input->post('agency_id'), true),
+            'agency_id'   => htmlspecialchars(($this->input->post('agency_id') ?? 1), true),
         );
         if (!empty($_FILES['file']['name'])) {
             $dataFile = $this->uploadFile();
@@ -60,12 +139,24 @@ class Innovation_m extends CI_Model
             // var_dump($dataFile); die;
         }
         
-            // Process the 'foto' input
-            if (!empty($_FILES['foto']['name'])) {
-                $dataFoto = $this->uploadFoto();
-                // var_dump($dataFoto); die;
-                $data['foto'] = $dataFoto;
-            }
+        // Process the 'foto' input
+        if (!empty($_FILES['foto']['name'])) {
+            $dataFoto = $this->uploadFoto('foto');
+            // var_dump($dataFoto); die;
+            $data['foto'] = $dataFoto;
+        }
+        // Process the 'foto_second' input
+        if (!empty($_FILES['foto_second']['name'])) {
+            $dataFotoS = $this->uploadFoto('foto_second');
+            // var_dump($dataFoto); die;
+            $data['foto_second'] = $dataFotoS;
+        }
+        // Process the 'foto' input
+        if (!empty($_FILES['foto_third']['name'])) {
+            $dataFotoT = $this->uploadFoto('foto_third');
+            // var_dump($dataFoto); die;
+            $data['foto_third'] = $dataFotoT;
+        }
             // var_dump($this->upload->do_upload('foto')); die;
         return $this->db->insert($this->table, $data);
     }
@@ -105,7 +196,9 @@ class Innovation_m extends CI_Model
             'password_file' => $result->password_file ?? '-',
             'description' => $result->description ?? '-',
             'agency_name' => $agency->agency_name ?? '-',
-            'foto' => $result->foto ?? '-',
+            'foto' => $result->foto ?? null,
+            'foto_second' => $result->foto_second ?? null,
+            'foto_third' => $result->foto_third ?? null,
         ];
         
         echo json_encode($data);
@@ -135,7 +228,7 @@ class Innovation_m extends CI_Model
             'user_id'   => infoLogin()['id'],
             'prov_id'   => 24,
             'city_id'   => 340,
-            'agency_id'   => htmlspecialchars($this->input->post('agency_id'), true),
+            'agency_id'   => htmlspecialchars(($this->input->post('agency_id') ?? 1), true),
         );
 
         $upload_file = $_FILES['file']['name'];
@@ -161,6 +254,25 @@ class Innovation_m extends CI_Model
 
                 echo $this->upload->display_errors();
             }
+        }
+
+        // Process the 'foto' input
+        if (!empty($_FILES['foto']['name'])) {
+            $dataFoto = $this->uploadFoto('foto');
+            // var_dump($dataFoto); die;
+            $data['foto'] = $dataFoto;
+        }
+        // Process the 'foto_second' input
+        if (!empty($_FILES['foto_second']['name'])) {
+            $dataFotoS = $this->uploadFoto('foto_second');
+            // var_dump($dataFoto); die;
+            $data['foto_second'] = $dataFotoS;
+        }
+        // Process the 'foto' input
+        if (!empty($_FILES['foto_third']['name'])) {
+            $dataFotoT = $this->uploadFoto('foto_third');
+            // var_dump($dataFoto); die;
+            $data['foto_third'] = $dataFotoT;
         }
         return $this->db->set($data)->where($this->primary, $id)->update($this->table);
     }
@@ -189,15 +301,15 @@ class Innovation_m extends CI_Model
             }
         }
     }
-    public function uploadFoto(){
-        if (!empty($_FILES['foto']['name'])) {
+    public function uploadFoto($a = ''){
+        if (!empty($_FILES[$a]['name'])) {
             $foto_config['allowed_types'] = 'jpg|png|jpeg';
             $foto_config['max_size'] = '51200';
             $foto_config['upload_path'] = './assets/innovation/';
 
             $this->load->library('upload', $foto_config);
 
-            if ($this->upload->do_upload('foto')) {
+            if ($this->upload->do_upload($a)) {
                 $new_foto = $this->upload->data('file_name');
                 return $new_foto; // Set the foto field in the data array
             } else {

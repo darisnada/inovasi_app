@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 30, 2023 at 11:51 AM
+-- Generation Time: Nov 10, 2023 at 09:24 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -39,6 +39,7 @@ CREATE TABLE `agencies` (
 --
 
 INSERT INTO `agencies` (`id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 'Bukan Dinas', '2023-11-09 17:21:48', '2023-11-09 17:21:48'),
 (2, 'Dinas Pendidikan', '2023-10-13 04:04:31', '2023-10-13 04:04:31'),
 (3, 'Dinas Kesehatan', '2023-10-13 04:05:15', '2023-10-13 04:05:15'),
 (4, 'Dinas Sosial', '2023-10-13 04:05:24', '2023-10-13 04:05:24');
@@ -7562,7 +7563,7 @@ CREATE TABLE `innovations` (
   `user_id` bigint(20) NOT NULL,
   `prov_id` bigint(20) NOT NULL,
   `city_id` bigint(20) NOT NULL,
-  `agency_id` bigint(20) DEFAULT NULL,
+  `agency_id` bigint(20) DEFAULT 1,
   `innovator_name` varchar(255) NOT NULL,
   `innovator_phone` varchar(15) NOT NULL,
   `innovator_email` varchar(50) NOT NULL,
@@ -7583,6 +7584,8 @@ CREATE TABLE `innovations` (
   `stages` enum('UJI COBA','PENERAPAN','DIPASARKAN') NOT NULL,
   `date` date DEFAULT NULL,
   `foto` text DEFAULT NULL,
+  `foto_second` text DEFAULT NULL,
+  `foto_third` text DEFAULT NULL,
   `is_active` smallint(1) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
@@ -7592,12 +7595,12 @@ CREATE TABLE `innovations` (
 -- Dumping data for table `innovations`
 --
 
-INSERT INTO `innovations` (`id`, `user_id`, `prov_id`, `city_id`, `agency_id`, `innovator_name`, `innovator_phone`, `innovator_email`, `innovator_address`, `innovation_field_id`, `title`, `year`, `category`, `description`, `purpose`, `benefit`, `award`, `file`, `password_file`, `link`, `testimonial`, `type`, `stages`, `date`, `foto`, `is_active`, `created_at`, `updated_at`) VALUES
-(1, 6, 24, 340, 0, 'Dwiki', '0', 'lkds@akj', '', 1, 'Title 1', 2023, 'MASYARAKAT', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'TIDAK ADA', 'ilustrasi-langit_169.jpeg', '-', 'lkjkkklkjlkjlkjl', 'llkl', 'DIGITAL', 'UJI COBA', '2023-10-14', NULL, 1, '2023-10-14 09:37:08', '2023-10-14 09:37:08'),
-(3, 6, 24, 340, 2, 'Riski', '099', 'lk@alkd', '', 1, 'lkd', 2023, 'ASN', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'TIDAK ADA', '', '-', 'lkjkkklkjlkjlkjl', 'llkl', 'DIGITAL', 'PENERAPAN', '2023-10-15', NULL, 0, '2023-10-15 03:35:46', '2023-10-15 03:35:46'),
-(6, 6, 24, 340, 3, 'kjkajsdfkasdu', '099', 'akjdsn@afdkj', '', 3, 'iuiuihtdcuifyiupu809778', 2023, 'MASYARAKAT', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'TIDAK ADA', 'Surat_Lamaran_Kerja_PnG_11.pdf', '-', 'lkjkkklkjlkjlkjl', 'llkl', 'NON DIGITAL', 'UJI COBA', '2023-10-21', NULL, 0, '2023-10-21 05:25:35', '2023-10-21 05:25:35'),
-(7, 6, 24, 340, 2, 'Riski', '099', 'akjdsn@afdkj', '', 3, 'sdlkkkj', 2023, 'ASN', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'INTERNASIONAL', 'Surat_Lamaran_Kerja_PnG_1_(1)2.pdf', '-', 'lkjkkklkjlkjlkjl', 'llkl', 'NON DIGITAL', 'PENERAPAN', '2023-10-21', 'download.png', 0, '2023-10-21 06:03:55', '2023-10-21 06:03:55'),
-(8, 6, 24, 340, 0, '', '', '', '', 0, '', 0, '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', NULL, 0, '2023-10-21 06:14:06', '2023-10-21 06:14:06');
+INSERT INTO `innovations` (`id`, `user_id`, `prov_id`, `city_id`, `agency_id`, `innovator_name`, `innovator_phone`, `innovator_email`, `innovator_address`, `innovation_field_id`, `title`, `year`, `category`, `description`, `purpose`, `benefit`, `award`, `file`, `password_file`, `link`, `testimonial`, `type`, `stages`, `date`, `foto`, `foto_second`, `foto_third`, `is_active`, `created_at`, `updated_at`) VALUES
+(1, 6, 24, 340, 0, 'Dwiki', '0', 'lkds@akj', '', 1, 'Title 1', 2023, 'MASYARAKAT', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'TIDAK ADA', 'ilustrasi-langit_169.jpeg', '-', 'lkjkkklkjlkjlkjl', 'llkl', 'DIGITAL', 'UJI COBA', '2023-10-14', NULL, NULL, NULL, 1, '2023-10-14 09:37:08', '2023-10-14 09:37:08'),
+(3, 6, 24, 340, 2, 'Riski', '099', 'lk@alkd', '', 1, 'lkd', 2023, 'ASN', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'TIDAK ADA', '', '-', 'https://www.youtube.com/embed/j4ZW3YPm58U?si=jK_ixcAR-YkFeASn', 'llkl', 'DIGITAL', 'PENERAPAN', '2023-10-15', NULL, NULL, NULL, 0, '2023-10-15 03:35:46', '2023-10-15 03:35:46'),
+(6, 6, 24, 340, 3, 'kjkajsdfkasdu', '099', 'akjdsn@afdkj', '', 3, 'iuiuihtdcuifyiupu809778', 2023, 'MASYARAKAT', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'TIDAK ADA', 'Surat_Lamaran_Kerja_PnG_11.pdf', '-', 'lkjkkklkjlkjlkjl', 'llkl', 'NON DIGITAL', 'UJI COBA', '2023-10-21', NULL, NULL, NULL, 0, '2023-10-21 05:25:35', '2023-10-21 05:25:35'),
+(7, 6, 24, 340, 2, 'Riski', '099', 'akjdsn@afdkj', '', 3, 'sdlkkkj', 2023, 'ASN', 'oadsjfoiasdi adjfoiad aodsjfosaido', 'kladsfjkad', 'kdfjasd', 'INTERNASIONAL', 'Surat_Lamaran_Kerja_PnG_1_(1)2.pdf', '-', 'https://youtube.com/j4ZW3YPm58U?si=FL0QzKgh6Ryjq2X7', 'llkl', 'NON DIGITAL', 'PENERAPAN', '2023-10-21', 'download.png', NULL, NULL, 0, '2023-10-21 06:03:55', '2023-10-21 06:03:55'),
+(9, 6, 24, 340, 2, 'Tess foto', '000', '00@000', '', 1, 'Tess foto', 2023, 'ASN', 'kjnknknkjnj', 'njkkj', 'kjnj', 'TIDAK ADA', '', 'l,ll', '-', 'klmklmlkl', 'DIGITAL', 'UJI COBA', '2023-11-10', 'download.jpg', 'download_(1).jpg', 'download_(2).jpg', 0, '2023-11-09 17:14:42', '2023-11-09 17:14:42');
 
 -- --------------------------------------------------------
 
@@ -7622,6 +7625,29 @@ CREATE TABLE `innovation_fields` (
 INSERT INTO `innovation_fields` (`id`, `name`, `slug`, `description`, `icon`, `created_at`, `updated_at`) VALUES
 (1, 'Pertanian Dan Pangan', '-', 'lklklklklk', 'mdi mdi-inbox-full', '2023-10-14 08:10:29', '2023-10-14 08:10:29'),
 (3, 'coba', '-', '-', 'mdi mdi-inbox-full', '2023-10-14 20:08:48', '2023-10-14 20:08:48');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news`
+--
+
+CREATE TABLE `news` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `images` text NOT NULL,
+  `date` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `description`, `images`, `date`, `created_at`, `updated_at`) VALUES
+(1, 'satu', 'Yoooooooooooo jandskjnvkaijhaihdf aijhufiaushdfiuhasif iahdfijhasidjf iahsdfiaudshfi ihiaudhsfniad pqwiehrpowiqe nkcjnvkd aksdnfjadf poaijsdfiaijsd poiajsdfioj  iajdfoiajsdfiijadsiojfid', 'download_(1).jpg', '2023-11-10', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -7702,14 +7728,30 @@ INSERT INTO `settings` (`id`, `options`, `label`, `value`, `is_show`, `created_a
 (3, 'banner_desc', 'Deskripsi Banner', 'Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.', 0, '2023-10-14 17:52:59', '2023-10-14 17:52:59'),
 (4, 'profile_desc', 'Deskripsi Profil', '<p>Lorem ipsum, atau ringkasnya lipsum, adalah teks standar yang ditempatkan untuk mendemostrasikan elemen grafis atau presentasi visual seperti font, tipografi, dan tata letak.</p>', 0, '2023-10-14 17:52:59', '2023-10-14 17:52:59'),
 (5, 'profile_image', 'Gambar Profil', 'ilustrasi-langit_169.jpeg', 0, '2023-10-14 17:52:59', '2023-10-14 17:52:59'),
-(6, 'contact_title', 'contact_title', 'Kontak Kami', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
-(7, 'contact_phone', 'contact_phone', '0980876788', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
+(6, 'contact_title', 'contact_title', '', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
+(7, 'contact_phone', 'contact_phone', '', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
 (8, 'contact_fax', 'contact_tax', '(9088) 89898', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
 (9, 'contact_email', 'contact_email', 'contact_email@email', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
 (10, 'contact_address', 'contact_address', 'Jalan Imam Bonjol Nomor 190', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
 (11, 'contact_map', 'contact_map', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15791.524612907475!2d114.298474!3d-8.314607599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd1572e0bd81e51%3A0xca16844f0b51d411!2sPerum%20Puri%20Rogojampi!5e0!3m2!1sid!2sid!4v1697339896139!5m2!1sid!2sid', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
 (12, 'logo', 'logo', '3_-Jasa-Bikin-Logo.png', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
-(13, 'icon', 'icon', 'download.png', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44');
+(13, 'icon', 'icon', 'download.png', 0, '2023-10-14 17:55:44', '2023-10-14 17:55:44'),
+(14, 'instagram', 'instagram', 'cretivox', 0, '2023-11-10 05:46:42', '2023-11-10 05:46:42');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sliders`
+--
+
+CREATE TABLE `sliders` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `image` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -89034,6 +89076,28 @@ INSERT INTO `users` (`id`, `prov_id`, `city_id`, `agency_id`, `identity`, `name`
 (13, 24, 340, NULL, '892839582349898', 'Decha', '892839582349898', 'dech@dech', '$2y$10$nVrujwHYdYzNKM8dsYGLL.S/Un3Sk9EbTlCWhEVh1pw4q6zz8InfC', '09876', 'MASYARAKAT', '-', 1, '2023-10-16 07:31:01', '2023-10-16 07:31:01'),
 (14, 24, 340, NULL, '876548765876', 'kikiki', '876548765876', 'adjk@adkjf', '$2y$10$SvE1gyxKKfspB6rLMQOrf.b.EzCMNa3v7xLlGXKt2p8mM0vZ7xbEy', '0987654', 'MASYARAKAT', '-', 1, '2023-10-16 07:31:58', '2023-10-16 07:31:58');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `videos`
+--
+
+CREATE TABLE `videos` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `link` text NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `videos`
+--
+
+INSERT INTO `videos` (`id`, `name`, `link`, `created_at`, `updated_at`) VALUES
+(1, 'Contoh 1', 'https://www.youtube.com/embed/KKBTaD1ZLsY?si=MHWTeCmfQTk-Mlu3', NULL, NULL),
+(2, 'Contoh', 'https://www.youtube.com/embed/KKBTaD1ZLsY?si=MHWTeCmfQTk-Mlu3', NULL, NULL);
+
 --
 -- Indexes for dumped tables
 --
@@ -89069,6 +89133,12 @@ ALTER TABLE `innovation_fields`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `provinces`
 --
 ALTER TABLE `provinces`
@@ -89081,6 +89151,12 @@ ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `sliders`
+--
+ALTER TABLE `sliders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `subdistricts`
 --
 ALTER TABLE `subdistricts`
@@ -89090,6 +89166,12 @@ ALTER TABLE `subdistricts`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `videos`
+--
+ALTER TABLE `videos`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -89118,13 +89200,19 @@ ALTER TABLE `districts`
 -- AUTO_INCREMENT for table `innovations`
 --
 ALTER TABLE `innovations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `innovation_fields`
 --
 ALTER TABLE `innovation_fields`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -89136,7 +89224,13 @@ ALTER TABLE `provinces`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `sliders`
+--
+ALTER TABLE `sliders`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `subdistricts`
@@ -89149,6 +89243,12 @@ ALTER TABLE `subdistricts`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `videos`
+--
+ALTER TABLE `videos`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

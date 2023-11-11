@@ -99,16 +99,22 @@
                                             <input type="text" name="contact_title" <?= $data['contact_title'] ?? ''?> class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mt-3">
+                                    <div class="col-lg-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Telephone</label>
                                             <input type="text" name="contact_phone" class="form-control" value="<?= $data['contact_title']?>">
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 mt-3">
+                                    <div class="col-lg-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Fax</label>
                                             <input type="text" name="contact_fax" value="<?= $data['contact_fax']?>" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Instagram</label>
+                                            <input type="text" name="instagram" value="<?= $data['instagram']?>" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-lg-6 mt-3">

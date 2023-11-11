@@ -21,6 +21,7 @@ class Setting_m extends CI_Model {
         $contact_map = $this->db->query("SELECT * FROM settings WHERE options='contact_map'")->row();
         $logo = $this->db->query("SELECT * FROM settings WHERE options='logo'")->row();
         $icon = $this->db->query("SELECT * FROM settings WHERE options='icon'")->row();
+        $instagram = $this->db->query("SELECT * FROM settings WHERE options='instagram'")->row();
         return [
             'name_app' => $name_app->value,
             'banner_title' => $banner_title->value,
@@ -35,6 +36,7 @@ class Setting_m extends CI_Model {
             'contact_map' => $contact_map->value,
             'logo' => $logo->value,
             'icon' => $icon->value,
+            'instagram' => $instagram->value,
         ];
     }
 	
@@ -50,6 +52,7 @@ class Setting_m extends CI_Model {
         $this->db->set(['value' => $this->input->post('contact_email')])->where('options', 'contact_email')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_address')])->where('options', 'contact_address')->update($this->table);
         $this->db->set(['value' => $this->input->post('contact_map')])->where('options', 'contact_map')->update($this->table);
+        $this->db->set(['value' => $this->input->post('instagram')])->where('options', 'instagram')->update($this->table);
 
         $upload_image = $_FILES['profile_image']['name'];
 

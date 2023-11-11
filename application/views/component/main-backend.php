@@ -129,6 +129,9 @@
 									<li><a href="<?= base_url('innovation_field') ?>">Data Fokus Bidang</a></li>
 									<li><a href="<?= base_url('masyarakat') ?>">Data Masyarakat</a></li>
 									<li><a href="<?= base_url('asn') ?>">Data ASN</a></li>
+									<li><a href="<?= base_url('slider') ?>">Data Slider</a></li>
+									<li><a href="<?= base_url('news') ?>">Data Berita</a></li>
+									<li><a href="<?= base_url('video') ?>">Data Video</a></li>
 								</ul>
 							</li>
 							<li>
@@ -275,6 +278,7 @@
 		tinymce.init({
 		selector: 'textarea#elm3'
 		});
+		
 	</script>
 
 </body>
