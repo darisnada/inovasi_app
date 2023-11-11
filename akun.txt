@@ -1,0 +1,7 @@
+ROLE - ADMIN
+username = superadmin
+password = superadmin
+
+ROLE - MASYARAKAT
+username = dwik
+password = dwik
